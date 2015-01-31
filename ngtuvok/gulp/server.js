@@ -18,9 +18,9 @@ function browserSyncInit(baseDir, files, browser) {
     };
   }
 
-  var proxyOptions = url.parse('http://localhost:3000');
+  var proxyOptions = url.parse('http://localhost:9860');
   proxyOptions.route = '/api';
-  // requests to `/api/x/y/z` are proxied to `http://localhost:3000`
+  // requests to `/api/x/y/z` are proxied to `http://localhost:9860`
 
   browserSync.instance = browserSync.init(files, {
     startPath: '/',
