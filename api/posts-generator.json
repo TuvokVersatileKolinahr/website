@@ -1,0 +1,14 @@
+[
+  '{{repeat(7)}}',
+  {
+    picture: 'http://lorempixel.com/g/300/200/cats/',
+    title: '{{lorem(2, "words")}}',
+    about: '{{lorem(1, "sentence")}}',
+    contents: '{{lorem(5, "paragraphs")}}',
+    posted: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+    tags: [
+      '{{repeat(7)}}',
+      '{{lorem(1, "words")}}'
+    ]
+  }
+]
