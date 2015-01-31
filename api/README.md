@@ -11,5 +11,6 @@ Load this data into the mongo instance configured in `express.js`
 
 To import the generated data paste it into a file `myposts.json` and transfer it to your mongo-server.
 Then run:
+    
     mongoimport --db tuvok --collection posts --file myposts.json
 
