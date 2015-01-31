@@ -1,5 +1,6 @@
 angular.module "ngtuvok"
   .controller "MainCtrl", ($scope) ->
+    $scope.$parent.pagetitle = "Built with lots of stuff"
     $scope.awesomeThings = [
       {
         'title': 'AngularJS',
