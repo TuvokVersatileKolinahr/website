@@ -4,6 +4,9 @@ angular.module "ngtuvok", ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'n
       .when "/",
         templateUrl: "app/index/index.html"
         controller: "IdxCtrl"
+      .when "/blog",
+        templateUrl: "app/blog/blog.html"
+        controller: "BlogCtrl"
       .when "/builtwith",
         templateUrl: "app/main/main.html"
         controller: "MainCtrl"
