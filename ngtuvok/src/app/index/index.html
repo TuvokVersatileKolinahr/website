@@ -14,7 +14,7 @@
     <div class="techs" layout-align="center">
       <md-card ng-repeat="repo in repos">
         <div class="thumbnail">
-          <img class="pull-right" ng-src="assets/images/{{repo.language}}.png" alt="{{repo.language}}">
+          <img class="pull-right" ng-src="assets/images/{{repo.language | lowercase}}.png" alt="{{repo.language}}">
           <div class="caption">
             <h3><a href="{{repo.html_url}}">{{repo.name}}</a></h3>
             <p>{{repo.description}}</p>
