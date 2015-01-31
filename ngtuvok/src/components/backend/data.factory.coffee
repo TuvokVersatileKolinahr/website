@@ -1,3 +1,3 @@
 angular.module 'ngtuvok'
   .factory "DataFactory", ($resource) ->
-    $resource '/api/posts'
+    $resource '/api/collections/posts'
