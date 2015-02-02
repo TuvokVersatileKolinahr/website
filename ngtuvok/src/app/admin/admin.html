@@ -7,7 +7,8 @@
       <h1>{{title}}</h1>
       <p><a class="btn" ng-href="#/">{{slug}}</a></p>
     </section>
-    <button ng-click="login()" ng-if="username == ''">Login</button>
+    <button ng-click="login()" ng-if="!username">Login</button>
+    <div ng-if="errormessage">{{errormessage}}</div>
     <div>{{ username }}</div>
   </md-content>
 

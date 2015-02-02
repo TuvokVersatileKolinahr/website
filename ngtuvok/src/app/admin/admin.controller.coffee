@@ -4,25 +4,31 @@ angular.module "ngtuvok"
     $scope.title = "Admin Pages"
     $scope.slug = "Administer me"
     $scope.noop = 'noop'
-    $scope.username = ''
 
     ref = new Firebase("https://amber-fire-3343.firebaseio.com/")
     sync = $firebase(ref)
     $scope.data = sync.$asObject()
 
     $scope.login = ->
-      console.log 'Leeloo Dallas multipass'
-      myname = 'nobody'
       ref.authWithOAuthPopup 'github', (error, authData) ->
         if error
           console.log 'Login Failed!', error
-          $scope.username = 'error'
+          $scope.errormessage = "Login Failed"
+          # $mdDialog.show $mdDialog.alert()
+          #   .title('This is an alert title')
+          #   .content('You can specify some description text in here.')
+          #   .ariaLabel('Password notification')
+          #   .ok('Got it!')
+          #   .targetEvent(ev)
+          $scope.$apply()
         else
-          debugger
-          $scope.username = 'success'
           console.log 'Authenticated successfully with payload:', authData
+          $scope.username = authData.github.displayName
+          delete $scope.errormessage
+          $scope.$apply()
         return
-      $scope.username = myname
-      return
+
+    #login on enter
+    $scope.login()
 
     return
