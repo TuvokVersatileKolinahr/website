@@ -27,6 +27,9 @@ angular.module "ngtuvok"
           delete $scope.errormessage
           $scope.$apply()
         return
+    $scope.logout = ->
+      ref.unauth
+      delete $scope.displayName
 
     #login on enter
     $scope.login()

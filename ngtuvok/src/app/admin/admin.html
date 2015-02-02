@@ -8,6 +8,7 @@
       <p><a class="btn" ng-href="#/">{{slug}}</a></p>
     </section>
     <button ng-click="login()" ng-if="!displayName">Login</button>
+    <button ng-click="logout()" ng-if="displayName">Logout</button>
     <div ng-if="errormessage">{{errormessage}}</div>
     <div ng-if="displayName">Hello, {{ displayName }}.</div>
   </md-content>
