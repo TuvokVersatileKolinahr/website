@@ -1,0 +1,21 @@
+<div layout="vertical" layout-fill>
+
+  <header ng-include="'components/navbar/navbar.html'"></header>
+
+  <md-content>
+    <section class="jumbotron">
+      <h1>{{title}}</h1>
+      <p><a class="btn" ng-href="#/">{{slug}}</a></p>
+    </section>
+    <button ng-click="login()" ng-if="!displayName">Login</button>
+    <div ng-if="errormessage">{{errormessage}}</div>
+    <div ng-if="displayName">Hello, {{ displayName }}.</div>
+  </md-content>
+
+  <footer>
+    <md-toolbar layout="row" layout-align="center center">
+      <p>With ♥ from <a href="https://github.com/TuvokVersatileKolinahr">T.V.K.</a></p>
+    </md-toolbar>
+  </footer>
+
+</div>
