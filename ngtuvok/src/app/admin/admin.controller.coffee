@@ -13,7 +13,7 @@ angular.module "ngtuvok"
       ref.authWithOAuthPopup 'github', (error, authData) ->
         if error
           console.log 'Login Failed!', error
-          $scope.errormessage = "Login Failed"
+          $scope.errormessage = error.code + ' ' + error.message
           # $mdDialog.show $mdDialog.alert()
           #   .title('This is an alert title')
           #   .content('You can specify some description text in here.')
@@ -23,7 +23,7 @@ angular.module "ngtuvok"
           $scope.$apply()
         else
           console.log 'Authenticated successfully with payload:', authData
-          $scope.username = authData.github.displayName
+          $scope.displayName = authData.github.displayName
           delete $scope.errormessage
           $scope.$apply()
         return
