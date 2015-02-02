@@ -1,4 +1,4 @@
-angular.module "ngtuvok", ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute', 'ngMaterial']
+angular.module "ngtuvok", ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute', 'ngMaterial', 'firebase']
   .config ($routeProvider) ->
     $routeProvider
       .when "/",
@@ -13,5 +13,8 @@ angular.module "ngtuvok", ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'n
       .when "/contact",
         templateUrl: "app/contact/contact.html"
         controller: "ContactCtrl"
+      .when "/admin",
+        templateUrl: "app/admin/admin.html"
+        controller: "AdminCtrl"
       .otherwise
         redirectTo: "/"
