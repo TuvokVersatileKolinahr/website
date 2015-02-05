@@ -1,5 +1,5 @@
 angular.module "ngtuvok"
-  .controller "AdminCtrl", ($scope, $firebase) ->
+  .controller "AdminCtrl", ($scope, $firebase, BlogService) ->
     $scope.$parent.pagetitle = "Admin us"
     $scope.title = "Admin Pages"
     $scope.slug = "Administer me"
@@ -8,7 +8,9 @@ angular.module "ngtuvok"
     ref = new Firebase("https://amber-fire-3343.firebaseio.com/")
     sync = $firebase(ref)
     $scope.data = sync.$asObject()
+    $scope.posts = BlogService.getLastPost()
 
+    ###***
     $scope.login = ->
       ref.authWithOAuthPopup 'github', (error, authData) ->
         if error
@@ -29,6 +31,14 @@ angular.module "ngtuvok"
         return
     $scope.logout = ->
       ref.unauth
+      delete $scope.displayName
+      return
+    ***###
+    $scope.login = ->
+      console.log "logged in"
+      $scope.displayName = "Tester"
+    $scope.logout = ->
+      console.log "logged out"
       delete $scope.displayName
 
     #login on enter
