@@ -7,6 +7,7 @@ var browserSync = require('browser-sync');
 // var middleware = require('./proxy');
 var url = require('url'); // https://www.npmjs.org/package/url
 var proxy = require('proxy-middleware'); // https://www.npmjs.org/package/proxy-middleware
+var modRewrite = require('connect-modrewrite');
 
 function browserSyncInit(baseDir, files, browser) {
   browser = browser === undefined ? 'default' : browser;
@@ -27,7 +28,10 @@ function browserSyncInit(baseDir, files, browser) {
     server: {
       baseDir: baseDir,
       // middleware: middleware,
-      middleware: [proxy(proxyOptions)],
+      middleware: [proxy(proxyOptions),
+        modRewrite([
+          '!\\.\\w+$ /index.html [L]'
+        ])],
       routes: routes
     },
     browser: browser
