@@ -7,25 +7,24 @@
       <h1>{{title}}</h1>
       <p><a class="btn" ng-href="#/">{{slug}}</a></p>
     </section>
-    <button ng-click="login()" ng-if="!displayName">Login</button>
-    <button ng-click="logout()" ng-if="displayName">Logout</button>
-    <div ng-if="errormessage">{{errormessage}}</div>
-    <div ng-if="displayName">Hello, {{ displayName }}.</div>
   </md-content>
 
   <md-content>
-    <div class="postlist" ng-repeat="post in posts">
-      <div class="post">
-        <span>{{post.title}}</span>
-        <a href="/admin/{{post._id}}" class="editbutton">edit</a>
+    <div class="postlist">
+      <div class="post" ng-repeat="post in posts">
+        <a href="/admin/posts/{{post._id}}">
+          <i class="fa fa-pencil-square-o icon"></i>
+          <span class="title">{{post.title}}</span>
+        </a>
       </div>
     </div>
   </md-content>
 
-  <footer>
-    <md-toolbar layout="row" layout-align="center center">
-      <p>With ♥ from <a href="https://github.com/TuvokVersatileKolinahr">T.V.K.</a></p>
-    </md-toolbar>
-  </footer>
+  <md-content>
+    <div class="postlist">
+    </div>
+  </md-content>
+
+  <footer></footer>
 
 </div>

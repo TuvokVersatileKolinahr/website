@@ -1,4 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
+// $fa-font-path: "/bower_components/font-awesome/fonts";
+@import "./bower_components/font-awesome/scss/font-awesome";
+
 
 html {
   font-family: 'Roboto Slab', serif;
@@ -68,16 +71,26 @@ section.jumbotron {
 }
 
 .postlist {
-  a {
-    display: block;
-    width: 115px;
-    height: 25px;
-    background: #4E9CAF;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
+  width: 200px;
+  margin-left: 20px;
+  .post {
+    a {
+      line-height: 1.4em;
+      text-decoration: none;
+      color: white;
+      .title {
+        color: darkgrey;
+        width: 75%;
+      }
+      .icon {
+        float: left;
+        width: 22px;
+        margin-top: 4px;
+      }
+      &:hover {
+        color: #000;
+      }
+    }
   }
 }
 // injector

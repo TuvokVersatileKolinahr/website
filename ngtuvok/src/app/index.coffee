@@ -22,11 +22,11 @@ angular.module "ngtuvok",
       .when "/contact",
         templateUrl: "app/contact/contact.html"
         controller: "ContactCtrl"
-      .when "/admin/:id",
-        templateUrl: "app/admin/post.html"
-        controller: "AdminCtrl"
       .when "/admin",
         templateUrl: "app/admin/admin.html"
         controller: "AdminCtrl"
+      .when "/admin/posts/:id",
+        templateUrl: "app/admin/post.html"
+        controller: "AdminSinglePostCtrl"
       .otherwise
         redirectTo: "/"

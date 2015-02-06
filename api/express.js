@@ -40,7 +40,14 @@ app.get('/collections/:collectionName/:id', function(req, res, next) {
   })
 })
 
+// app.put('/collections/:collectionName/:id', function(req, res, next) {
+//   req.collection.findById(req.params.id, function(e, result){
+//     if (e) return next(e)
+//     console.log("result", result);
+//   })
+// })
 app.put('/collections/:collectionName/:id', function(req, res, next) {
+  delete req.body._id;
   req.collection.updateById(req.params.id, {$set: req.body}, {safe: true, multi: false}, function(e, result){
     if (e) return next(e)
     res.send((result === 1) ? {msg:'success'} : {msg: 'error'})

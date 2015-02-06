@@ -19,3 +19,10 @@ angular.module 'ngtuvok'
     getPosts: (start, end) ->
       # return $resource.query ->
       return posts
+
+    savePost: (post) ->
+      DataFactory.update(post, ->
+        console.log "saved " + post._id
+        return
+      )
+      return post
