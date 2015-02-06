@@ -1,5 +1,14 @@
-angular.module "ngtuvok", ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute', 'ngMaterial', 'firebase']
-  .config ($routeProvider) ->
+angular.module "ngtuvok",
+['ngAnimate',
+'ngCookies',
+'ngTouch',
+'ngSanitize',
+'ngResource',
+'ngRoute',
+'ngMaterial',
+'firebase']
+  .config ($routeProvider, $locationProvider) ->
+    $locationProvider.html5Mode(true)
     $routeProvider
       .when "/",
         templateUrl: "app/index/index.html"
