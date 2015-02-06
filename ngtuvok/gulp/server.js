@@ -4,7 +4,6 @@ var gulp = require('gulp');
 var paths = gulp.paths;
 var util = require('util');
 var browserSync = require('browser-sync');
-// var middleware = require('./proxy');
 var url = require('url'); // https://www.npmjs.org/package/url
 var proxy = require('proxy-middleware'); // https://www.npmjs.org/package/proxy-middleware
 var modRewrite = require('connect-modrewrite');
@@ -27,7 +26,6 @@ function browserSyncInit(baseDir, files, browser) {
     startPath: '/',
     server: {
       baseDir: baseDir,
-      // middleware: middleware,
       middleware: [proxy(proxyOptions),
         modRewrite([
           '!\\.\\w+$ /index.html [L]'
