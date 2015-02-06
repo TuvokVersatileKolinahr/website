@@ -71,8 +71,10 @@ section.jumbotron {
 }
 
 .postlist {
-  width: 200px;
-  margin-left: 20px;
+  width: 40%;
+  margin-left: auto;
+  margin-right: 25%;
+  padding-bottom: 10px;
   .post {
     a {
       line-height: 1.4em;
@@ -86,6 +88,10 @@ section.jumbotron {
         float: left;
         width: 22px;
         margin-top: 4px;
+      }
+      .postdate {
+        float: right;
+        color: darkgrey;
       }
       &:hover {
         color: #000;

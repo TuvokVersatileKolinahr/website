@@ -11,6 +11,11 @@ angular.module "ngtuvok"
     $scope.data = sync.$asObject()
     $scope.posts = BlogService.getLastPost()
 
+    $scope.formatTime = (utcDate) ->
+      # moment("2010-01-01T05:06:07", ["YYYY", moment.ISO_8601]);
+      date = moment(utcDate, ["YYYY-MM-dd'T'HH:mm:ss", moment.ISO_8601])
+      date.format('MM/DD/YYYY HH:mm')
+
     ###***
     $scope.login = ->
       ref.authWithOAuthPopup 'github', (error, authData) ->
