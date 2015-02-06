@@ -6,7 +6,8 @@ angular.module "ngtuvok",
 'ngResource',
 'ngRoute',
 'ngMaterial',
-'firebase']
+'firebase',
+'btford.markdown']
   .config ($routeProvider, $locationProvider) ->
     $locationProvider.html5Mode(true)
     $routeProvider

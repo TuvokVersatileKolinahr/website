@@ -94,6 +94,17 @@ section.jumbotron {
   }
 }
 
+.blog {
+  .post {
+    background: lightgrey;
+    .postbody {
+      margin-left: auto;
+      margin-right: 20%;
+      width: 60%;
+    }
+  }
+}
+
 .editpost {
   width: 600px;
   .post {
@@ -105,7 +116,7 @@ section.jumbotron {
     textarea {
       overflow: auto;
       width: 100%;
-      height: 200px;
+      height: 400px;
     }
   }
 }
