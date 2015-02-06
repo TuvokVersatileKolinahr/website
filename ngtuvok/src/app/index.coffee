@@ -16,6 +16,9 @@ angular.module "ngtuvok",
       .when "/blog",
         templateUrl: "app/blog/blog.html"
         controller: "BlogCtrl"
+      .when "/blog/:id",
+        templateUrl: "app/blog/blogpost.html"
+        controller: "BlogPostCtrl"
       .when "/builtwith",
         templateUrl: "app/main/main.html"
         controller: "MainCtrl"

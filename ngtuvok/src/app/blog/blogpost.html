@@ -1,0 +1,20 @@
+<div layout="vertical" layout-fill>
+
+  <header ng-include="'components/navbar/navbar.html'"></header>
+
+  <md-content>
+    <section class="jumbotron">
+      <h1>{{title}}</h1>
+      <p>{{slug}}</p>
+    </section>
+  </md-content>
+
+  <md-content>
+    <div class="post">
+      <div>{{post.contents}}</div>
+    </div>
+  </md-content>
+
+  <footer/>
+
+</div>
