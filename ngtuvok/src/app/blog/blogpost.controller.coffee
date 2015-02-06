@@ -4,8 +4,8 @@ angular.module "ngtuvok"
 
     $scope.post = BlogService.getPostById($routeParams.id)
     $scope.post.$promise.then((data) ->
-        $scope.title = $scope.post.title
-        $scope.slug = $scope.post.about
-      )
+      $scope.title = $scope.post.title
+      $scope.slug = $scope.post.about
+    )
 
     return
