@@ -5,14 +5,16 @@
   <md-content>
     <section class="jumbotron">
       <h1>{{title}}</h1>
-      <p><a class="btn" ng-href="#/">{{slug}}</a></p>
+      <p><a href="/blog/{{singlepost._id}}">more</a></p>
     </section>
   </md-content>
 
-  <md-content>
+  <md-content class="editpost">
     <div class="post">
-      <span>{{singlepost.title}}</span>
-      <textarea ng-model="singlepost.contents"></textarea>
+      <div><label>Title:</label><input ng-model="singlepost.title"></input></div>
+      <div><label>About:</label><input ng-model="singlepost.about"></input></div>
+      <div><label>Body:</label>
+      <textarea ng-model="singlepost.contents"></textarea></div>
     </div>
     <button ng-click="savePost()">save</button>
   </md-content>
