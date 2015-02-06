@@ -4,7 +4,8 @@ angular.module "ngtuvok"
     $scope.title = "Admin Pages"
     $scope.slug = "Administer me"
     $scope.noop = 'noop'
-
+    $scope.showlogin = true
+    
     ref = new Firebase("https://amber-fire-3343.firebaseio.com/")
     sync = $firebase(ref)
     $scope.data = sync.$asObject()
