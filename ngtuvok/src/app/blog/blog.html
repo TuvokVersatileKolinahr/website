@@ -17,7 +17,8 @@
           <img class="pull-right" ng-src="{{post.picture}}" alt="{{post.title}}">
           <div class="caption">
             <h3>{{post.title}}</h3>
-            <p>{{post.about}}</p>
+            <h3>{{post.posted}}</h3>
+            <p>{{post.about | limitTo : 100 }}</p>
             <a href="/blog/{{post._id}}">more</a>
           </div>
         </div>

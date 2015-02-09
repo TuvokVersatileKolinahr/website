@@ -6,16 +6,20 @@ var mongoskin = require('mongoskin'),
     titleDone = false,
     contentDone = false,
     skelDone = false,
-    date = new Date(),
+    Chance = require('chance'),
+    chance = new Chance(),
+    moment = require('moment'),
+    date = chance.date({year: 2014}),
     skeleton = {
       "picture": "http://lorempixel.com/g/300/200/cats/",
-      "posted": date.toISOString()
+      "posted": date
     };
 
 coll.insert(skeleton, function(e, results){
   if (e) return next(e)
   id = results[0]._id;
   console.log("inserted: ", id);
+  console.log("skeleton", skeleton);
 })
 
 function getWord(text) {
@@ -44,7 +48,7 @@ http.get({
   response.on('end', function() {
 
     // Data reception is done, do whatever with it!
-    console.log(body);
+    //console.log(body);
     coll.findById(id, function(e, result){
       if (e) return next(e)
       result.title = getWord(body) + " " + getWord(body);
@@ -57,7 +61,7 @@ http.get({
       delete result._id;
       coll.updateById(id, result, {safe: true, multi: false}, function(e, result){
         if (e) return next(e)
-        console.log("result", result);
+        //console.log("result", result);
         titleDone = true
       })
     })
@@ -76,14 +80,14 @@ http.get({
   response.on('end', function() {
 
     // Data reception is done, do whatever with it!
-    console.log(body);
+    //console.log(body);
     coll.findById(id, function(e, result){
       if (e) return next(e)
       result.contents = body;
       delete result._id;
       coll.updateById(id, result, {safe: true, multi: false}, function(e, result){
         if (e) return next(e)
-        console.log("result", result);
+        //console.log("result", result);
         contentDone = true
       })
     })

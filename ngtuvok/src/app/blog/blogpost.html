@@ -7,6 +7,8 @@
       <h1>{{title}}</h1>
       <p>{{slug}}</p>
     </section>
+    <button ng-click="nextPost()" ng-if="nextpost._id">Next</button>
+    <button ng-click="prevPost()" ng-if="prevpost._id">Previous</button>
   </md-content>
 
   <md-content class="blog">

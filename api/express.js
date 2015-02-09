@@ -20,7 +20,7 @@ app.get('/', function(req, res, next) {
 })
 
 app.get('/collections/:collectionName', function(req, res, next) {
-  req.collection.find({} ,{limit: 10, sort: {'_id': -1}}).toArray(function(e, results){
+  req.collection.find({}, {limit: 10, sort: {'posted': -1}}).toArray(function(e, results){
     if (e) return next(e)
     res.send(results)
   })
@@ -34,9 +34,23 @@ app.post('/collections/:collectionName', function(req, res, next) {
 })
 
 app.get('/collections/:collectionName/:id', function(req, res, next) {
-  req.collection.findById(req.params.id, function(e, result){
+  var get = req.param("get");
+  console.log("get", get);
+  req.collection.findById(req.params.id, function(e, result01){
     if (e) return next(e)
-    res.send(result)
+    if (get === 'next' && result01 != null) {
+      req.collection.findOne({ posted: { $gt: new Date(result01.posted) } }, {sort: {'posted': 1}}, function(e, result02){
+        if (e) return next(e)
+        res.send(result02)
+      })
+    } else if (get === 'prev' && result01 != null) {
+      req.collection.findOne({ posted: { $lt: new Date(result01.posted) } }, {sort: {'posted': -1}}, function(e, result02){
+        if (e) return next(e)
+        res.send(result02)
+      })
+    } else {
+      res.send(result01)
+    }
   })
 })
 

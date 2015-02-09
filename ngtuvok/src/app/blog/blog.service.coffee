@@ -16,6 +16,18 @@ angular.module 'ngtuvok'
       )
       return post
 
+    getNextPost: (id) ->
+      post = DataFactory.get({ id: id, get:'next' }, ->
+        console.log post
+      )
+      return post
+
+    getPrevPost: (id) ->
+      post = DataFactory.get({ id: id, get:'prev' }, ->
+        console.log post
+      )
+      return post
+
     getPosts: (start, end) ->
       # return $resource.query ->
       return posts
