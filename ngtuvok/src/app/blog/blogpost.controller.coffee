@@ -15,7 +15,7 @@ angular.module "ngtuvok"
     )
 
     $scope.nextPost = ->
-      $location.path('/blog/' + $scope.nextpost._id);
+      $location.path('/blog/' + $scope.nextpost._id)
       return
 
     $scope.prevpost = BlogService.getPrevPost($routeParams.id)
@@ -25,7 +25,7 @@ angular.module "ngtuvok"
     )
 
     $scope.prevPost = ->
-      $location.path('/blog/' + $scope.prevpost._id);
+      $location.path('/blog/' + $scope.prevpost._id)
       return
 
     return
